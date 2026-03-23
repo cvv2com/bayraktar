@@ -1,294 +1,60 @@
-/* ============================================================
-   Bayraktar.org – Main Stylesheet
-   Theme: Dark Charcoal/Anthracite
-   Palette: Deep Navy #1A2A56 | Cyan #00E5FF | Gold #FFB74D
-   ============================================================ */
-
-/* ---------- Reset & Base ---------- */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --bg:        #1c1f24;
-  --surface:   #23272e;
-  --navy:      #1A2A56;
-  --cyan:      #00E5FF;
-  --gold:      #FFB74D;
-  --text:      #e0e6f0;
-  --muted:     #8a95a8;
-  --radius:    10px;
-  --transition: 0.28s ease;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* ---------- Header ---------- */
-header {
-  background: linear-gradient(135deg, #0d1226 0%, var(--navy) 60%, #0d1226 100%);
-  padding: 2rem 1rem 1.5rem;
-  text-align: center;
-  border-bottom: 2px solid var(--cyan);
-  position: relative;
-}
-
-.header-logo {
-  max-height: 110px;
-  width: auto;
-  margin: 0 auto 0.75rem;
-  filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.35));
-}
-
-.header-title {
-  font-size: clamp(1.4rem, 4vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, var(--cyan), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ---------- Under-Construction Banner ---------- */
-.banner {
-  background: linear-gradient(90deg, var(--navy), #0d1a3e, var(--navy));
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
-  padding: 0.9rem 1rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.banner::before {
-  content: '';
+/* ---------- Language Switcher ---------- */
+#languageSwitcher {
   position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 18px,
-    rgba(255, 183, 77, 0.04) 18px,
-    rgba(255, 183, 77, 0.04) 36px
-  );
-}
-
-.banner-inner {
-  position: relative;
+  top: 14px;
+  right: 14px;
   display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.banner-icon {
-  color: var(--gold);
-  font-size: 1.3rem;
-  animation: pulse 2s infinite;
-}
-
-.banner-text {
-  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.45; }
-}
-
-/* ---------- Main ---------- */
-main {
-  flex: 1;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2.5rem 1.2rem;
-}
-
-.section-title {
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  font-weight: 600;
-  color: var(--cyan);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.6rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(0, 229, 255, 0.25);
-}
-
-/* ---------- Card Grid ---------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid rgba(0, 229, 255, 0.12);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-6px) scale(1.025);
-  box-shadow: 0 12px 36px rgba(0, 229, 255, 0.18), 0 4px 12px rgba(0, 0, 0, 0.45);
-  border-color: rgba(0, 229, 255, 0.45);
-}
-
-.card-image-wrap {
-  background: #12151a;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition);
-}
-
-.card:hover .card-image-wrap img {
-  transform: scale(1.06);
-}
-
-.card-body {
-  padding: 0.9rem 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.6rem;
-}
-
-.card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
-}
-
-.card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  color: var(--cyan);
-  transition: color var(--transition);
-  word-break: break-all;
-}
-
-.card-link:hover {
-  color: var(--gold);
-}
-
-.card-link i {
-  font-size: 0.75rem;
-  flex-shrink: 0;
-}
-
-/* ---------- Footer ---------- */
-footer {
-  background: linear-gradient(180deg, #13161b 0%, #0d0f14 100%);
-  border-top: 2px solid var(--navy);
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.footer-social {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.85rem;
-  margin-bottom: 1.2rem;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--surface);
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 229, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+#languageSwitcher .lang-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  background: rgba(35, 39, 46, 0.7);
   color: var(--text);
-  font-size: 1.1rem;
-  transition: background var(--transition), color var(--transition),
-              border-color var(--transition), transform var(--transition);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
 }
 
-.social-link:hover {
-  background: var(--navy);
+#languageSwitcher .lang-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 229, 255, 0.55);
   color: var(--cyan);
-  border-color: var(--cyan);
-  transform: scale(1.12);
 }
 
-.social-link.whatsapp:hover  { background: #128c7e; color: #fff; border-color: #25d366; }
-.social-link.instagram:hover { background: #c13584; color: #fff; border-color: #e1306c; }
-.social-link.twitter:hover   { background: #14171a; color: #fff; border-color: #fff; }
-.social-link.viber:hover     { background: #7360f2; color: #fff; border-color: #9b87f5; }
-.social-link.telegram:hover  { background: #0088cc; color: #fff; border-color: #29b6f6; }
-.social-link.phone:hover     { background: #2e7d32; color: #fff; border-color: #66bb6a; }
-.social-link.email:hover     { background: #c62828; color: #fff; border-color: #ef5350; }
-
-.footer-copy {
-  font-size: 0.8rem;
-  color: var(--muted);
+#languageSwitcher .lang-btn.is-active {
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.25), rgba(255, 183, 77, 0.22));
+  border-color: rgba(255, 183, 77, 0.7);
+  color: #fff;
 }
 
-.footer-copy a {
-  color: var(--cyan);
-  transition: color var(--transition);
+#languageSwitcher .lang-btn:focus-visible {
+  outline: 2px solid rgba(0, 229, 255, 0.65);
+  outline-offset: 2px;
 }
 
-.footer-copy a:hover {
-  color: var(--gold);
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 480px) {
-  .card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1rem;
+@media (max-width: 520px) {
+  #languageSwitcher {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+    padding: 5px;
   }
-  .card-body { padding: 0.7rem 0.8rem; }
+
+  #languageSwitcher .lang-btn {
+    padding: 7px 9px;
+    font-size: 0.74rem;
+  }
 }
